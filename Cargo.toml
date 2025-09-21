@@ -1,0 +1,21 @@
+[package]
+name = "worldkeeper"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = "0.14"
+
+# Optional features for better development experience
+[features]
+default = ["bevy/default"]
+dev = [
+    "bevy/dynamic_linking",  # Faster compile times in debug
+]
+
+# Optimize dependencies for faster compile times
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.dev]
+opt-level = 1
